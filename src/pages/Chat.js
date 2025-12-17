@@ -17,7 +17,7 @@ import Lottie from 'react-lottie-player';
 import animationdata from "../animations/typing.json";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const ENDPOINT = "http://localhost:7010"; // Socket endpoint
+const ENDPOINT = process.env.REACT_APP_API_URL; // Socket endpoint
 let socket, selectedChatCompare; // Global variables for socket connection and selected chat comparison
 
 const Chat = () => {

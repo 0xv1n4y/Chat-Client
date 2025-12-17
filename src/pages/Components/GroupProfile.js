@@ -2,7 +2,6 @@ import { Avatar, Box, Button, Chip, IconButton, TextField, Typography } from '@m
 import React, { useEffect, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { getUsers, resetUsers } from '../../store/actions/user-actions';
-import { GLOBALS } from '../../global';
 import { useDispatch, useSelector } from 'react-redux';
 import { createGroup, resetGroupState } from '../../store/actions/group-actions';
 import { getChats } from '../../store/actions/chat-actions';
@@ -83,7 +82,7 @@ const GroupProfile = ({onClose}) => {
             {
                 userDetails && userDetails.length > 0 && userDetails.map(user => (
                     <Chip
-                    avatar={<Avatar alt="Natacha" src= { user.photo ? GLOBALS.api_usersemedia + user.photo : "/static/images/avatar/1.jpg"} />}
+                    avatar={<Avatar alt="Natacha" src= { user.photo || "/static/images/avatar/1.jpg"} />}
                     label={user.u_nm}
                     color='default'
                     onDelete={() => handleRemoveUser(user)}
@@ -96,7 +95,7 @@ const GroupProfile = ({onClose}) => {
                 users && users.length > 0  &&  (
                     users.map((user, index) => (
                         <Box className="profile" key={index} onClick = {() => handleAddUser(user)}>
-                        <Avatar src={ user.photo ? GLOBALS.api_usersemedia + user.photo : "/static/images/avatar/2.jpg"} alt='user-profile' className='user-photo'/>
+                        <Avatar src={ user.photo || "/static/images/avatar/2.jpg"} alt='user-profile' className='user-photo'/>
                         <Box className="details">
                         <Typography className='title'>{user.u_nm}</Typography>
                         <Typography className='message'>{user.email}</Typography>

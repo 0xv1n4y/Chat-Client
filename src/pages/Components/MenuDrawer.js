@@ -3,7 +3,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers, resetUsers } from '../../store/actions/user-actions';
 import { useEffect, useRef, useState } from 'react';
-import { GLOBALS } from '../../global';
 import { selectUser } from '../../store/actions/global-actions';
 import { createChat, getChats } from '../../store/actions/chat-actions';
 import { getMessages } from '../../store/actions/message-actions';
@@ -85,7 +84,7 @@ const MenuDrawer = ({setOpen}) => {
             users && users.length > 0  ?  (
               users.map((user, index) => (
                 <Box className="profile" key={index} onClick = {() => handleUser(user)}>
-                  <Avatar src={ user.photo ? GLOBALS.api_usersemedia + user.photo : "/static/images/avatar/2.jpg"} alt='user-profile' className='user-photo'/>
+                  <Avatar src={ user.photo || "/static/images/avatar/2.jpg"} alt='user-profile' className='user-photo'/>
                   <Box className="details">
                   <Typography className='title'>{user.u_nm}</Typography>
                   <Typography className='message'>{user.email}</Typography>

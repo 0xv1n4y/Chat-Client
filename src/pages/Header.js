@@ -1,8 +1,7 @@
 import { Avatar, Box, Dialog, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch, useSelector } from 'react-redux';
-import { GLOBALS } from '../global';
 import UserProfile from './Components/UserProfile';
 import { logout, resetAddNewUserError, resetAuthDataError, resetLogoutState, resetTokenDetails } from '../store/actions/auth-actions';
 import { resetSelectedUser } from '../store/actions/global-actions';
@@ -67,7 +66,8 @@ const Header = ({ handleDrawerToggle }) => {
       <Box>
           <Tooltip title="Open Settings">
             <IconButton onClick={handleUserMenuOpen} className="user-menu-icon">
-              <Avatar alt="Avatar" src= {userData.photo ? GLOBALS.api_usersemedia + userData.photo : "/static/images/avatar/2.jpg"} />
+              {/* <Avatar alt="Avatar" src= {userData.photo ? GLOBALS.api_usersemedia + userData.photo : "/static/images/avatar/2.jpg"} /> */}
+              <Avatar  alt="Avatar"  src={userData.photo ? userData.photo : "/images/default.avatar.jpg"}/>
             </IconButton>
           </Tooltip>
           <Menu

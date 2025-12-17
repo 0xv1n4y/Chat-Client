@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const getApiHost = () => {
-  // Production (Vercel)
+//   Production (Vercel)
   if (process.env.REACT_APP_API_URL) {
     return process.env.REACT_APP_API_URL;
   }
@@ -19,7 +19,7 @@ export const GLOBALS = {
   api_fetchtoken: `${API_HOST}/api/v1/details`,
   api_logout: `${API_HOST}/api/v1/logout`,
 
-  api_usersemedia: `${API_HOST}/media/users/`,
+//   api_usersemedia: `${API_HOST}/media/users/`,
   api_getusers: `${API_HOST}/api/v1/users`,
 
   api_createchat: `${API_HOST}/api/v1/chat`,
